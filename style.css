@@ -146,6 +146,10 @@ body .wrapper {
   transition: 0.2s;
 }
 
+.like-wrapper h2 {
+  font-size: 20px;
+}
+
 .like-wrapper .close-btn,
 .like-wrapper .delete {
   background: none;

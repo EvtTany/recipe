@@ -117,6 +117,9 @@ body {
     background-color: #f6f6f6;
     transform: translateX(100%);
     transition: 0.2s;
+    h2 {
+        font-size: 20px;
+    }
     .close-btn,
     .delete {
         background: none;
