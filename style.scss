@@ -1,0 +1,105 @@
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+}
+$orange: #ffb800;
+
+%btn {
+    background: $orange;
+    border-radius: 4px;
+    color: #fff;
+    border: none;
+    font-size: 20px;
+    line-height: 25px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+%title {
+    font-weight: bold;
+    font-size: 30px;
+    line-height: 45px;
+}
+a {
+    text-decoration: none;
+}
+
+body {
+    margin: 0 auto;
+    background: #f5fafe;
+    font-family: "Mulish";
+    color: #333333;
+    header {
+        background: #fff;
+    }
+    .wrapper {
+        margin: 0 auto;
+        padding: 0 70px;
+    }
+}
+
+// header first line style
+.first-line {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 67px;
+    padding: 30px 0;
+    .title {
+        font-family: "Luckiest Guy", cursive;
+        font-size: 24px;
+        text-transform: uppercase;
+        a {
+            color: #333333;
+        }
+    }
+    .search-button {
+        display: flex;
+        flex-wrap: nowrap;
+        height: 50px;
+        width: 50%;
+        input {
+            background-color: #f8f8f8;
+            border: none;
+            width: 100%;
+            min-width: 200px;
+            padding-left: 30px;
+            color: #333333;
+        }
+        button {
+            min-width: 80px;
+            background: $orange;
+            border: none;
+            cursor: pointer;
+        }
+    }
+}
+
+// menu after header style
+.menu {
+    background-color: #065a46;
+    height: 80px;
+    ul {
+        display: flex;
+        justify-content: space-between;
+        padding-top: 25px;
+        a {
+            color: #fff;
+            &:hover {
+                color: $orange;
+            }
+        }
+        .active {
+            color: $orange;
+        }
+        li {
+            font-weight: bold;
+            font-size: 15px;
+            line-height: 25px;
+            text-transform: uppercase;
+            list-style: none;
+        }
+    }
+}
