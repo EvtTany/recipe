@@ -1,16 +1,13 @@
+// get element for recipe content 
 const recipe = document.getElementById('get-recipe'),  //get recipe
-    mealContainer = document.getElementById('meal'),  // recipe wrapper
+    // mealContainer = document.getElementById('meal'),  // recipe wrapper
     imgContainer = document.querySelector('.recipe-img'),   // img wrapper
     recipeName = document.querySelector('.recipe-name'),
     ingredient = document.querySelector('.ingredients'),
     category = document.querySelector('.category'),
     descTitle = document.querySelector('.desc-title'),
     area = document.querySelector('.area'),
-    desc = document.querySelector('.desc'),  //description of recipe
-    favoritMeal = document.querySelector('.star'),  // add to favorite
-    likeWrapper = document.querySelector('.like-wrapper'),  // favorit wrapper
-    closeBtn = document.querySelector('.close-btn'),  // close favorite
-    deleteMeal = document.querySelector('.delete');  // delete from favorit
+    desc = document.querySelector('.desc');  //description of recipe
 
 let currentMeal
 const mealsList = []
@@ -21,6 +18,7 @@ recipe.addEventListener('click', () => {
         .then(res => res.json())
         .then(({ meals }) => {
             createMeal(meals[0])
+            createFavoritContent(meals[0])
         })
 })
 
@@ -32,6 +30,7 @@ recipe.addEventListener('mousedown', () => {
 
     })
 })
+
 //create full recipe list
 const createMeal = (meal) => {
     imgContainer.innerHTML = `<img src="${meal.strMealThumb}">`
@@ -52,17 +51,34 @@ const createMeal = (meal) => {
     }
     ingredient.innerHTML = `<strong>Ingredients:</strong> <ul> ${ingredients.map(ingredient => `<li>${ingredient}</li>`).join('')} </ul>`
 }
+
+//get element for favorit content 
+const favoritMeal = document.querySelector('.star'),  // add to favorite
+    likeWrapper = document.querySelector('.like-wrapper'),  // favorit wrapper
+    closeBtn = document.querySelector('.close-btn'),  // close favorite
+    deleteFromFav = document.querySelector('.delete'), // delete from favorit
+    favImgContainer = document.querySelector('.fav-img'),   // img wrapper
+    favRecipeName = document.querySelector('.fav-name');
+
+let favoritList = []
+let currentRecipe
+
 //add to favorite list
 favoritMeal.addEventListener('click', () => {
-    likeWrapper.classList.add('active')
-    console.log('gjhhb');
     addMeal(currentMeal)
+    likeWrapper.classList.add('active')
+    //если клик - добавить в избранное!  не обновлять избранный товар по клику NEW, только по клику на звездочку
 })
 
 //close favorite list 
 closeBtn.addEventListener('click', () => {
     likeWrapper.classList.remove('active')
 })
+
+const createFavoritContent = (meal) => {
+    favImgContainer.innerHTML = `<img src="${meal.strMealThumb}">`
+    favRecipeName.innerHTML = `${meal.strMeal} `
+}
 
 function addMeal(meal) {
     mealsList.push(meal)
@@ -73,4 +89,20 @@ function addMeal(meal) {
 //     mealsList = mealsList.filter((id) => idMeal !== id)
 // }
 
-// deleteMeal.addEventListener('click', ())
+// deleteFromFav.addEventListener('click', () => {
+// })
+
+
+// burger-menu 
+const burgerBtn = document.querySelector('.header-burger'), //burger icon
+    burgerSlideWrapper = document.querySelector('.burger-slide-wrapp'),
+    burgerBtnClose = document.querySelector('.close');
+
+
+burgerBtn.addEventListener('click', () => {
+    burgerSlideWrapper.classList.add('active')
+})
+
+burgerBtnClose.addEventListener('click', () => {
+    burgerSlideWrapper.classList.remove('active')
+})

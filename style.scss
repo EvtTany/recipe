@@ -81,7 +81,7 @@ body {
 .menu {
     background-color: #065a46;
     height: 80px;
-    ul {
+    .menu-link {
         display: flex;
         justify-content: space-between;
         padding-top: 25px;
@@ -103,6 +103,75 @@ body {
         }
     }
 }
+.burger-wrapp {
+    display: none;
+    justify-content: flex-end;
+    padding-top: 25px;
+}
+.header-burger {
+    width: 30px;
+    height: 22px;
+    position: relative;
+    display: none;
+    align-self: center;
+    .burger-line {
+        display: block;
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        background-color: $orange;
+        left: 0;
+    }
+    .burger-line_first {
+        top: 0;
+    }
+    .burger-line_second {
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    .burger-line_third {
+        bottom: 0;
+    }
+}
+
+//  burger slide
+.burger-wrapper-slide {
+    position: relative;
+}
+.burger-slide-wrapp {
+    display: flex;
+    flex-direction: row-reverse;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 60%;
+    height: 100%;
+    background: #f6f6f6;
+    transform: translateX(100%);
+    transition: 0.2s;
+    .burger-nav {
+        padding: 20px 30px 0 0;
+        .close {
+            margin-bottom: 30px;
+        }
+    }
+    .burger-menu-link {
+        display: flex;
+        flex-direction: column;
+        list-style: none;
+        a {
+            color: #333333;
+            font-size: 30px;
+            text-transform: uppercase;
+            &:hover {
+                color: $orange;
+            }
+        }
+        li {
+            margin-bottom: 10px;
+        }
+    }
+}
 
 // like info
 .content {
@@ -115,19 +184,31 @@ body {
     top: 207px;
     right: 0;
     background-color: #f6f6f6;
+    padding: 5px;
     transform: translateX(100%);
     transition: 0.2s;
-    h2 {
-        font-size: 20px;
-    }
     .close-btn,
     .delete {
         background: none;
         border: none;
     }
+    .fav-img {
+        img {
+            width: 50px;
+            height: 50px;
+            margin: 5px;
+        }
+    }
+    .fav-name {
+        font-size: 20px;
+    }
+}
+.fav-wrapper-small {
+    display: flex;
 }
 .active {
     transform: translateX(0);
+    z-index: 99;
 }
 
 // content style
@@ -221,5 +302,19 @@ body {
     }
     .menu-links {
         display: none;
+    }
+    .header-burger {
+        display: flex;
+    }
+    .recipe-structure h2 {
+        font-size: 30px;
+    }
+    .recipe-desc .desc-title {
+        font-size: 25px;
+        margin-bottom: 5px;
+    }
+    .burger-wrapp,
+    .header-burger {
+        display: flex;
     }
 }
