@@ -1,6 +1,5 @@
 // get element for recipe content 
 const recipe = document.getElementById('get-recipe'),  //get recipe
-    // mealContainer = document.getElementById('meal'),  // recipe wrapper
     imgContainer = document.querySelector('.recipe-img'),   // img wrapper
     recipeName = document.querySelector('.recipe-name'),
     ingredient = document.querySelector('.ingredients'),
@@ -60,14 +59,15 @@ const favoritMeal = document.querySelector('.star'),  // add to favorite
     favImgContainer = document.querySelector('.fav-img'),   // img wrapper
     favRecipeName = document.querySelector('.fav-name');
 
-let favoritList = []
+let favoritList = []  // список отображения рецептов в избранном
 let currentRecipe
 
 //add to favorite list
 favoritMeal.addEventListener('click', () => {
     addMeal(currentMeal)
     likeWrapper.classList.add('active')
-    //если клик - добавить в избранное!  не обновлять избранный товар по клику NEW, только по клику на звездочку
+
+
 })
 
 //close favorite list 
@@ -96,8 +96,7 @@ function addMeal(meal) {
 // burger-menu 
 const burgerBtn = document.querySelector('.header-burger'), //burger icon
     burgerSlideWrapper = document.querySelector('.burger-slide-wrapp'),
-    burgerBtnClose = document.querySelector('.close');
-
+    burgerBtnClose = document.querySelector('.arrow-back');
 
 burgerBtn.addEventListener('click', () => {
     burgerSlideWrapper.classList.add('active')
