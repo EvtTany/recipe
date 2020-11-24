@@ -183,18 +183,22 @@ body {
 }
 .like-wrapper {
     position: fixed;
-    width: 300px;
-    height: 370px;
+    width: 400px;
+    height: 350px;
     top: 0;
     right: 0;
-    background-color: #f6f6f6;
+    background-color: #fff;
     padding: 5px;
     transform: translateX(100%);
     transition: 0.2s;
+    overflow-y: auto;
+
     .close-btn,
     .delete {
         background: none;
         border: none;
+        width: 15px;
+        height: 15px;
     }
     .fav-img {
         img {
@@ -207,8 +211,15 @@ body {
         font-size: 20px;
     }
 }
+.like-info {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
 .fav-wrapper-small {
     display: flex;
+    flex-direction: column;
 }
 .active {
     transform: translateX(0);
@@ -295,7 +306,6 @@ body {
         padding-top: 0;
     }
 }
-
 @media screen and (max-width: 768px) {
     .first-line {
         flex-direction: column;
