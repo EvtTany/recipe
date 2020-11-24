@@ -54,7 +54,6 @@ const createFavoriteRecipeContainer = (meal) => {
     const favRecipeName = document.createElement('h3');
     favRecipeName.classList.add('fav-name');
 
-
     const deleteFromFav = document.createElement('img');
     deleteFromFav.src = "https://img.icons8.com/fluent/15/000000/delete-sign.png"
     deleteFromFav.classList.add('delete');
@@ -69,9 +68,17 @@ const createFavoriteRecipeContainer = (meal) => {
     container.appendChild(favRecipeName);
     container.appendChild(deleteFromFav);
 
+    //delete from favorit list
+    deleteFromFav.addEventListener('click', (event) => {
+        let btnClick = event.target
+        btnClick.parentElement.remove()
+
+    })
+
     return container;
 }
 
+//create container for favorit list recipe
 const createFavoritContent = (meal) => {
     const container = createFavoriteRecipeContainer(meal);
     mealsList.push(meal);
@@ -83,6 +90,7 @@ const createFavoritContent = (meal) => {
 
 const addMeal = (meal) => mealsList.push(meal);
 
+// burger menu open/close
 burgerBtn.addEventListener('click', () => {
     burgerSlideWrapper.classList.add('active')
 })
@@ -91,14 +99,13 @@ burgerBtnClose.addEventListener('click', () => {
     burgerSlideWrapper.classList.remove('active')
 })
 
-//add to favorite list
+//add/close to favorite list
 favoritMeal.addEventListener('click', () => {
     addMeal(currentMeal)
     likeWrapper.classList.add('active')
     createFavoritContent(currentMeal)
 })
 
-//close favorite list 
 closeBtn.addEventListener('click', () => {
     likeWrapper.classList.remove('active')
 })
