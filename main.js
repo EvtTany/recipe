@@ -114,9 +114,7 @@ closeBtn.addEventListener('click', () => {
 recipe.addEventListener('click', () => {
     fetch('https://www.themealdb.com/api/json/v1/1/random.php')
         .then(res => res.json())
-        .then(({ meals }) => {
-            createMeal(meals[0])
-        })
+        .then(({ meals }) => createMeal(meals[0]))
 })
 
 recipe.addEventListener('mousedown', () => {
